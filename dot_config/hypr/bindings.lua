@@ -9,10 +9,11 @@ o.bind("SUPER + F", "File manager", "uwsm app -- nautilus --new-window")
 
 hl.unbind("SUPER + B")
 hl.unbind("SUPER + SHIFT + B")
+hl.unbind("SUPER + SHIFT + ALT + B")
 o.bind("SUPER + B", "Browser", '[workspace 1 silent] uwsm-app -- firefox -P "default-release"')
 o.bind("SUPER + ALT + B", "Browser (profile)", '[workspace 1 silent] uwsm-app -- firefox -P "issou"')
 o.bind("SUPER + SHIFT + B", "Browser (profile)", '[workspace 2] uwsm-app -- firefox -P "loreal"')
-o.bind("SUPER + SHIFT + ALT + B", "Browser (private)", 'uwsm-app -- firefox -P "jeremy" --private-window')
+o.bind("SUPER + SHIFT + ALT + B", "Browser (profile RIC)", 'uwsm-app -- firefox -P "ric"')
 
 o.bind("SUPER + M", "Music", "omarchy-launch-or-focus spotify")
 
