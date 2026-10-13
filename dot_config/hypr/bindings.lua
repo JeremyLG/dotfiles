@@ -16,6 +16,7 @@ o.bind("SUPER + SHIFT + B", "Browser (profile)", '[workspace 2] uwsm-app -- fire
 o.bind("SUPER + SHIFT + ALT + B", "Browser (profile RIC)", 'uwsm-app -- firefox -P "ric"')
 
 o.bind("SUPER + M", "Music", "omarchy-launch-or-focus spotify")
+o.bind("SUPER + CTRL + M", "Reconnect KVM monitor", "bash -c 'sudo /usr/local/bin/kvm-monitor-fix.sh'")
 
 o.bind("SUPER + N", "Editor", "omarchy-launch-editor")
 

@@ -55,8 +55,8 @@
     "transparent": false
   },
   "idle": {
-    "lock": 1800,
-    "screensaver": 1800
+    "lock": 16200,
+    "screensaver": 16200
   },
   "plugins": [
     "topkek.workspaces"
