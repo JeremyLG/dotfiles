@@ -1,0 +1,25 @@
+[user]
+  name = topkek-issou
+  email = topkek.issouu@gmail.com
+  signingKey = 82F9F6761606524C
+
+[commit]
+  gpgsign = true
+
+[pull]
+  rebase = true
+
+[push]
+  autoSetupRemote = true
+
+[includeIf "gitdir:~/devs/pro/loreal/"]
+  path = ~/devs/pro/loreal/.gitconfig
+
+[includeIf "gitdir:~/devs/jeremy/"]
+  path = ~/devs/jeremy/.gitconfig
+
+[includeIf "gitdir:~/.local/share/chezmoi/"]
+  path = ~/devs/jeremy/.gitconfig
+
+[credential]
+  helper = store

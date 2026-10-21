@@ -1,0 +1,49 @@
+# ~/.bashrc
+[[ $- != *i* ]] && return
+
+# --- PATH ---
+for d in "$HOME/.local/bin" "$HOME/.pi/agent/bin" "$HOME/bin"; do
+  [[ ":$PATH:" != *":$d:"* ]] && PATH="$d:$PATH"
+done
+export PATH
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+# --- history ---
+HISTSIZE=50000
+HISTFILESIZE=100000
+HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend checkwinsize cdspell autocd
+PROMPT_COMMAND="history -a${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+
+# --- prompt: ~/dir (branch) ❯  (red on non-zero exit) ---
+__git_branch() { git symbolic-ref --short HEAD 2>/dev/null | sed 's/.*/ (&)/'; }
+__prompt_color() { (( $? )) && printf '\e[31m' || printf '\e[32m'; }
+PS1='\[\e[34m\]\w\[\e[33m\]$(__git_branch)\[\e[0m\] \[$(__prompt_color)\]❯\[\e[0m\] '
+
+# --- aliases ---
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -l --icons --group-directories-first'
+alias lla='eza -la --icons --group-directories-first'
+alias cat='bat --paging=never'
+alias grep='grep --color=auto'
+alias xf='xfreerdp3 /v:"$(pass contabo/ip)" /u:"$(pass contabo/uname)" /p:"$(pass contabo/pwd)" \
+  /gfx:AVC420 /cert:ignore +fonts /clipboard /dynamic-resolution -wallpaper -themes -decorations'
+
+# --- tools ---
+eval "$(zoxide init --cmd cd bash)"
+eval "$(direnv hook bash)"
+[ -f /usr/share/fzf/key-bindings.bash ] && . /usr/share/fzf/key-bindings.bash
+[ -f /usr/share/fzf/completion.bash ] && . /usr/share/fzf/completion.bash
+
+# gcloud
+[ -f ~/google-cloud-sdk/path.bash.inc ] && . ~/google-cloud-sdk/path.bash.inc
+[ -f ~/google-cloud-sdk/completion.bash.inc ] && . ~/google-cloud-sdk/completion.bash.inc
+
+# nvm, lazy-loaded (keeps shell startup fast)
+export NVM_DIR="$HOME/.config/nvm"
+__nvm_lazy() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+}
+for c in nvm node npm npx; do eval "$c() { __nvm_lazy; $c \"\$@\"; }"; done
