@@ -1,0 +1,17 @@
+Host github-loreal
+  User git
+  Hostname github.com
+  IdentityFile ~/.ssh/id_ed25519.loreal
+  IdentitiesOnly yes
+
+Host github-perso
+  User git
+  Hostname github.com
+  IdentityFile ~/.ssh/id_ed25519.jeremylg
+  IdentitiesOnly yes
+
+Host github-issou
+  User git
+  Hostname github.com
+  IdentityFile ~/.ssh/id_ed25519.issou
+  IdentitiesOnly yes
