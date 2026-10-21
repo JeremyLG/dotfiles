@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+choice=$(printf '%s\n' \
+  "Apps" \
+  "Screenshot region" \
+  "Screenshot fullscreen" \
+  "Screenshot annotate" \
+  "Lock" \
+  "Suspend" \
+  "Logout" \
+  "Reboot" \
+  "Shutdown" | noctalia dmenu -p "Menu")
+
+case "$choice" in
+  "Apps")                  noctalia msg panel-toggle launcher ;;
+  "Screenshot region")     noctalia msg screenshot-region ;;
+  "Screenshot fullscreen") noctalia msg screenshot-fullscreen ;;
+  "Screenshot annotate")   noctalia msg screenshot-annotate ;;
+  "Lock")                  noctalia msg session lock ;;
+  "Suspend")               noctalia msg session suspend ;;
+  "Logout")                noctalia msg session logout ;;
+  "Reboot")                noctalia msg session reboot ;;
+  "Shutdown")              noctalia msg session shutdown ;;
+esac

@@ -17,7 +17,7 @@ PROMPT_COMMAND="history -a${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
 # --- prompt: ~/dir (branch) ❯  (red on non-zero exit) ---
 __git_branch() { git symbolic-ref --short HEAD 2>/dev/null | sed 's/.*/ (&)/'; }
-__prompt_color() { (( $? )) && printf '\e[31m' || printf '\e[32m'; }
+__prompt_color() { (($?)) && printf '\e[31m' || printf '\e[32m'; }
 PS1='\[\e[34m\]\w\[\e[33m\]$(__git_branch)\[\e[0m\] \[$(__prompt_color)\]❯\[\e[0m\] '
 
 # --- aliases ---
@@ -28,6 +28,7 @@ alias cat='bat --paging=never'
 alias grep='grep --color=auto'
 alias xf='xfreerdp3 /v:"$(pass contabo/ip)" /u:"$(pass contabo/uname)" /p:"$(pass contabo/pwd)" \
   /gfx:AVC420 /cert:ignore +fonts /clipboard /dynamic-resolution -wallpaper -themes -decorations'
+alias gpf='git push --force-with-lease'
 
 # --- tools ---
 eval "$(zoxide init --cmd cd bash)"
@@ -39,11 +40,16 @@ eval "$(direnv hook bash)"
 [ -f ~/google-cloud-sdk/path.bash.inc ] && . ~/google-cloud-sdk/path.bash.inc
 [ -f ~/google-cloud-sdk/completion.bash.inc ] && . ~/google-cloud-sdk/completion.bash.inc
 
-# nvm, lazy-loaded (keeps shell startup fast)
+# nvm: default node on PATH right away, nvm itself lazy-loaded (keeps startup fast)
 export NVM_DIR="$HOME/.config/nvm"
-__nvm_lazy() {
-  unset -f nvm node npm npx
+__nvm_default=$(cat "$NVM_DIR/alias/default" 2>/dev/null)
+for d in "$NVM_DIR"/versions/node/v"${__nvm_default#v}"*/bin; do
+  [ -d "$d" ] && PATH="$d:$PATH"
+done
+unset __nvm_default d
+nvm() {
+  unset -f nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+  nvm "$@"
 }
-for c in nvm node npm npx; do eval "$c() { __nvm_lazy; $c \"\$@\"; }"; done
