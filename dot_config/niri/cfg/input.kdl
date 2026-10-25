@@ -1,0 +1,47 @@
+// ────────────── Input Configuration (migrated from Hyprland) ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+
+input {
+    keyboard {
+        xkb {
+            // French keyboard layout (migrated from Hyprland)
+            layout "fr"
+        }
+        numlock // Enable numlock on startup
+        repeat-delay 600
+        repeat-rate 25
+    }
+
+    touchpad {
+        tap // Enable tap-to-click
+        natural-scroll // Enable natural (macOS-style) scrolling
+        dwt // Disable while typing
+        dwtp // Disable while trackpointing
+        accel-speed 0.0
+        accel-profile "adaptive"
+    }
+
+    mouse {
+        // Migrated from Hyprland: sensitivity 0.5 with flat profile
+        accel-profile "flat"
+        accel-speed 0.0 // In niri, 0.0 gives the "medium" sensitivity
+    }
+
+    // Migrated from Hyprland gestures:
+    // 4 fingers horizontal = workspace switching
+    // 3 fingers down = close window
+    // 3 fingers up = fullscreen
+    // 3 fingers left = float toggle
+    //
+    // Note: Niri's gesture support is more limited than Hyprland's
+    // Basic touchpad gestures work automatically for workspace switching
+    // Window-specific gestures (close, fullscreen, float) are not directly supported
+
+    focus-follows-mouse max-scroll-amount="0%" // Disabled by default, enable if desired
+    workspace-auto-back-and-forth // Enable workspace back & forth switching
+
+    // Tablet configuration (if you have a drawing tablet)
+    // tablet {
+    //     map-to-output "DP-1"
+    // }
+}

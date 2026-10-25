@@ -1,0 +1,218 @@
+binds {
+    // ────────────── Migrated from Hyprland Configuration ──────────────
+    // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
+
+    // ─── Emergency / Help ───
+    Mod+Shift+Escape                    { show-hotkey-overlay; }
+    Mod+Escape                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // ─────────────────────────────────────────────────────────
+    // ─── WINDOW MANAGEMENT (migrated from Hyprland) ───
+    // ─────────────────────────────────────────────────────────
+
+    // Window manipulation
+    Mod+W                               hotkey-overlay-title="Close Window" { close-window; }
+    Mod+Q                               hotkey-overlay-title="Close Window (alt)" { close-window; }
+    Mod+D                               hotkey-overlay-title="Maximize Column (monocle-like)" { maximize-column; }
+    Mod+F                               hotkey-overlay-title="Fullscreen Window" { fullscreen-window; }
+
+    // Change focus (arrow keys + vim keys)
+    Mod+Left                            { focus-column-left; }
+    Mod+H                               { focus-column-left; }
+    Mod+Right                           { focus-column-right; }
+    Mod+Up                              { focus-window-up; }
+    Mod+K                               { focus-window-up; }
+    Mod+Down                            { focus-window-down; }
+    Mod+J                               { focus-window-down; }
+
+    // Alt+Tab window cycling (niri uses workspace switching)
+    Alt+Tab                             { focus-workspace-down; }
+    Mod+Tab                             { focus-workspace-previous; }
+
+    // Move windows around
+    Mod+Shift+Left                      { move-column-left; }
+    Mod+Shift+Right                     { move-column-right; }
+    Mod+Shift+Up                        { move-window-up; }
+    Mod+Shift+Down                      { move-window-down; }
+
+    // Move between monitors
+    Mod+Shift+Alt+Left                  { move-column-to-monitor-left; }
+    Mod+Shift+Alt+Right                 { move-column-to-monitor-right; }
+
+    // Column/window manipulation
+    Mod+Home                            { focus-column-first; }
+    Mod+End                             { focus-column-last; }
+    Mod+Control+Home                    { move-column-to-first; }
+    Mod+Control+End                     { move-column-to-last; }
+
+    Mod+BracketLeft                     { consume-or-expel-window-left; }
+    Mod+BracketRight                    { consume-or-expel-window-right; }
+    Mod+Comma                           { consume-window-into-column; }
+    // AZERTY: the physical "." key has ';' unshifted (period is Shift+;)
+    Mod+Semicolon                       { expel-window-from-column; }
+
+    // Floating window toggle
+    Mod+Alt+Space                       hotkey-overlay-title="Toggle Floating" { toggle-window-floating; }
+    Mod+Shift+V                         { switch-focus-between-floating-and-tiling; }
+
+    // Window sizing
+    Mod+R                               { switch-preset-column-width; }
+    Mod+Shift+R                         { switch-preset-column-width-back; }
+    Mod+Control+Shift+R                 { switch-preset-window-height; }
+    Mod+Control+R                       { reset-window-height; }
+
+    // AZERTY: the physical minus key (-) produces ')' unshifted, so use Parenright.
+    Mod+Parenright                      { set-column-width "-10%"; }
+    Mod+Equal                           { set-column-width "+10%"; }
+    Mod+Shift+Parenright                { set-window-height "-10%"; }
+    Mod+Shift+Equal                     { set-window-height "+10%"; }
+
+    // Layout controls
+    Mod+Control+F                       { expand-column-to-available-width; }
+    Mod+Shift+C                         { center-column; }
+    Mod+Control+Shift+C                 { center-visible-columns; }
+    Mod+T                               { toggle-window-floating; }
+    Mod+M                               { maximize-window-to-edges; }
+
+    // Note: Niri doesn't support mouse drag bindings like Hyprland's Mod+mouse:272/273
+    // Use standard window title bar dragging or Mod+T for floating then drag
+
+    // ─────────────────────────────────────────────────────────
+    // ─── LAUNCHERS & APPLICATIONS (migrated from Hyprland) ───
+    // ─────────────────────────────────────────────────────────
+
+    // NOTE: UWSM is not installed on this machine, so spawns call the binaries directly.
+    Mod+Return                          hotkey-overlay-title="Terminal: ghostty" { spawn "ghostty"; }
+    Mod+E                               hotkey-overlay-title="File Manager: nautilus" { spawn "nautilus"; }
+    Mod+Shift+T                         hotkey-overlay-title="Editor: VSCodium" { spawn "codium"; }
+    // No calculator package installed (gnome-calculator/kcalc/qalculate-gtk missing).
+    // Install one, e.g. `sudo pacman -S kde-utilities` (kcalc) or `qalculate-gtk`, then uncomment:
+    // Mod+Shift+Semicolon                 hotkey-overlay-title="Calculator" { spawn "kcalc"; }
+    Control+Shift+Escape                hotkey-overlay-title="Task Manager: btop" { spawn "ghostty" "-e" "btop"; }
+
+    // Firefox profiles
+    Mod+B                               hotkey-overlay-title="Firefox: ed8682ig.default-release" { spawn-sh "firefox -profile \"$HOME/.config/mozilla/firefox/ed8682ig.default-release\""; }
+    Mod+Alt+B                           hotkey-overlay-title="Firefox: default-release" { spawn-sh "firefox -profile \"$HOME/.config/mozilla/firefox/QuLcFVni.Profil 1\""; }
+    Mod+Shift+B                         hotkey-overlay-title="Firefox: Profil 2" { spawn-sh "firefox -profile \"$HOME/.config/mozilla/firefox/IXJRPhkh.Profil 2\""; }
+    Mod+Shift+Alt+B                     hotkey-overlay-title="Firefox: default" { spawn-sh "firefox -profile \"$HOME/.config/mozilla/firefox/xukcyxgt.default\""; }
+
+    // XF86Calculator                    allow-when-locked=true { spawn "kcalc"; } // no calculator installed, see above
+
+    // ─────────────────────────────────────────────────────────
+    // ─── NOCTALIA SHELL (migrated from Hyprland) ───
+    // ─────────────────────────────────────────────────────────
+
+    Mod+Z                               hotkey-overlay-title="Toggle Settings" { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+X                               hotkey-overlay-title="Toggle Control Center" { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Space                           hotkey-overlay-title="Toggle Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Shift+Semicolon                 hotkey-overlay-title="Emoji Picker" { spawn-sh "noctalia msg panel-toggle launcher /emo"; } // AZERTY: period is Shift+; so the physical "." key is the ; key
+    Mod+Shift+L                         hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock"; }
+    Mod+Alt+C                           hotkey-overlay-title="Session Menu" { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+V                               hotkey-overlay-title="Clipboard Manager" { spawn-sh "noctalia msg panel-toggle clipboard"; }
+    Mod+A                               hotkey-overlay-title="Notification Center" { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
+    Mod+Shift+W                         hotkey-overlay-title="Wallpaper Selector" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
+
+    // ─────────────────────────────────────────────────────────
+    // ─── HARDWARE CONTROLS (migrated from Hyprland) ───
+    // ─────────────────────────────────────────────────────────
+
+    // Audio
+    XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute                       allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioMicMute                    allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
+
+    // Media
+    XF86AudioPlay                       allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+    XF86AudioPause                      allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+    XF86AudioNext                       allow-when-locked=true { spawn-sh "noctalia msg media next"; }
+    XF86AudioPrev                       allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+
+    // Brightness
+    XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
+
+    // ─────────────────────────────────────────────────────────
+    // ─── UTILITIES (migrated from Hyprland) ───
+    // ─────────────────────────────────────────────────────────
+
+    // Screen Capture (using niri's built-in screenshot)
+    Print                               hotkey-overlay-title="Screenshot Region" { screenshot; }
+    Mod+Print                           hotkey-overlay-title="Screenshot Fullscreen" { screenshot-screen; }
+    // Color picker: hyprpicker is not installed. To enable:
+    //   sudo pacman -S hyprpicker
+    // Mod+P                               hotkey-overlay-title="Color Picker" { spawn "hyprpicker" "-a" "-n"; }
+
+    // Alternative: using noctalia for screenshots
+    // Print                             { spawn-sh "noctalia msg screenshot-region"; }
+    // Mod+Print                         { spawn-sh "noctalia msg screenshot-fullscreen"; }
+
+    // ─────────────────────────────────────────────────────────
+    // ─── WORKSPACES (migrated from Hyprland) ───
+    // ─────────────────────────────────────────────────────────
+
+    // Focus workspaces 1-9
+    // The French AZERTY layout puts non-digit symbols on the number row:
+    //   & é " ' ( - è _ ç à
+    // niri matches the unshifted symbol of the physical key, so:
+    //   Ampersand = the 1 key, Eacute = the 2 key, Quotedbl = the 3 key, etc.
+    Mod+Ampersand                       { focus-workspace 1; }
+    Mod+Eacute                          { focus-workspace 2; }
+    Mod+Quotedbl                        { focus-workspace 3; }
+    Mod+Apostrophe                      { focus-workspace 4; }
+    Mod+Parenleft                       { focus-workspace 5; }
+    Mod+Minus                           { focus-workspace 6; }
+    Mod+Egrave                          { focus-workspace 7; }
+    Mod+Underscore                      { focus-workspace 8; }
+    Mod+Ccedilla                        { focus-workspace 9; }
+
+    // Move window to workspace 1-9 (Shift + number key)
+    Mod+Shift+Ampersand                 { move-column-to-workspace 1; }
+    Mod+Shift+Eacute                    { move-column-to-workspace 2; }
+    Mod+Shift+Quotedbl                  { move-column-to-workspace 3; }
+    Mod+Shift+Apostrophe                { move-column-to-workspace 4; }
+    Mod+Shift+Parenleft                 { move-column-to-workspace 5; }
+    Mod+Shift+Minus                     { move-column-to-workspace 6; }
+    Mod+Shift+Egrave                    { move-column-to-workspace 7; }
+    Mod+Shift+Underscore                { move-column-to-workspace 8; }
+    Mod+Shift+Ccedilla                  { move-column-to-workspace 9; }
+
+    // Navigate between adjacent workspaces (relative)
+    Mod+Control+Right                   { focus-workspace-down; }
+    Mod+Control+Left                    { focus-workspace-up; }
+
+    // Move window to adjacent workspace
+    Mod+Shift+Control+Right             { move-column-to-workspace-down; }
+    Mod+Shift+Control+Left              { move-column-to-workspace-up; }
+
+    // Scroll through workspaces with mouse
+    Mod+WheelScrollDown                 cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp                   cooldown-ms=150 { focus-workspace-up; }
+    Mod+Control+WheelScrollDown         cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Control+WheelScrollUp           cooldown-ms=150 { move-column-to-workspace-up; }
+
+    // Scroll through columns with mouse
+    Mod+WheelScrollRight                { focus-column-right; }
+    Mod+WheelScrollLeft                 { focus-column-left; }
+    Mod+Control+WheelScrollRight        { move-column-right; }
+    Mod+Control+WheelScrollLeft         { move-column-left; }
+
+    Mod+Shift+WheelScrollDown           { focus-column-right; }
+    Mod+Shift+WheelScrollUp             { focus-column-left; }
+    Mod+Control+Shift+WheelScrollDown   { move-column-right; }
+    Mod+Control+Shift+WheelScrollUp     { move-column-left; }
+
+    // Note: Niri doesn't have a "special workspace" (scratchpad) like Hyprland
+    // Consider using floating windows or a dedicated workspace instead
+    // Original Hyprland binds were: Mod+Shift+S (move to special), Mod+S (toggle)
+
+    // Overview mode (similar to workspace overview)
+    Mod+O                               repeat=false { toggle-overview; }
+
+    // ─────────────────────────────────────────────────────────
+    // ─── POWER & EXIT ───
+    // ─────────────────────────────────────────────────────────
+
+    Control+Alt+Delete                  { quit; }
+    Mod+Shift+P                         { power-off-monitors; }
+}

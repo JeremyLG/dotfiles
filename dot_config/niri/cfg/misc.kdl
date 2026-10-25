@@ -1,0 +1,64 @@
+// ────────────── Miscellaneous Settings (migrated from Hyprland) ──────────────
+
+// ─── Window decoration preference ───
+prefer-no-csd // Prefer server-side decorations (like titlebars) over client-side
+
+// ─── Screenshot configuration ───
+screenshot-path null // Save screenshots to XDG Pictures directory
+
+// ─── Environment variables (migrated from Hyprland) ───
+// If you use UWSM, define variables in ~/.config/uwsm/env instead
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+
+    // Force zero scaling for XWayland (migrated from Hyprland)
+    // Hyprland had: xwayland { force_zero_scaling = true }
+    GDK_SCALE "1"
+    XCURSOR_SIZE "24"
+}
+
+// ─── Cursor configuration ───
+cursor {
+    xcursor-theme "capitaine-cursors"
+    xcursor-size 24
+}
+
+// ─── Blur configuration (migrated from Hyprland decorations) ───
+// Hyprland: blur { size = 5, passes = 4, special = true }
+// Niri blur is configured differently but similar effect
+blur {
+    passes 4        // Matches Hyprland's 4 passes
+    offset 3.0      // Sample distance per pass (adjusted from Hyprland's size=5)
+    noise 0.03      // Grain overlay
+    saturation 1.0  // Color saturation (Hyprland didn't have this, using neutral 1.0)
+}
+
+// ─── Debug settings ───
+debug {
+    // Allows notification actions and window activation from noctalia
+    honor-xdg-activation-with-invalid-serial
+
+    // Uncomment for rendering debug info
+    // render-drm-device "/dev/dri/renderD128"
+
+    // Uncomment to disable direct scanout (if you have issues)
+    // Hyprland had: render { direct_scanout = 2 }
+    // disable-direct-scanout
+}
+
+// ─── Hotkey overlay ───
+hotkey-overlay {
+    skip-at-startup // Don't show the hotkey overlay on startup
+}
+
+// ─── Additional Hyprland settings that don't have direct niri equivalents ───
+// - Hyprland's misc { middle_click_paste = false } - Not configurable in niri
+// - Hyprland's misc { enable_swallow = true } - Not available in niri
+// - Hyprland's misc { vrr = 3 } - Configured per-output in display.kdl
+// - Hyprland's dwindle { preserve_split = true } - N/A, niri uses column layout
+// - Hyprland's ecosystem settings - Not applicable to niri

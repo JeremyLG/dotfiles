@@ -1,0 +1,25 @@
+// ────────────── Output Configuration (niri) ──────────────
+// Real outputs on this machine (niri msg outputs):
+//   "DP-2"      LG Electronics LG ULTRAGEAR    1920x1080 @ 144 Hz  (left)
+//   "HDMI-A-1"  Iiyama North America PL2770H   1920x1080 @ 60 Hz   (right)
+//
+// NOTE: niri picks the monitor's preferred mode automatically, so there's no
+// need to pin `mode`. The previous "1920x1080@143.998Hz" was invalid (the unit
+// is implied; "Hz" must not be appended) and HDMI-A-1 has no 144 Hz mode anyway.
+
+output "DP-2" {
+    scale 1.0
+    position x=0 y=0
+    variable-refresh-rate // LG monitor supports VRR
+}
+
+output "HDMI-A-1" {
+    scale 1.0
+    position x=1920 y=0
+}
+
+// If a third monitor is ever added, e.g.:
+// output "HDMI-A-2" {
+//     scale 1.0
+//     position x=3840 y=0
+// }

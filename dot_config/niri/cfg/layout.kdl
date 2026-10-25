@@ -1,0 +1,56 @@
+layout {
+    // ─── Layout settings (migrated from Hyprland) ───
+    // Hyprland gaps: gaps_in = 3, gaps_out = 8
+    // Niri has a single "gaps" value
+    gaps 8 // Gap between windows (compromise between Hyprland's in/out gaps)
+
+    center-focused-column "never" // Don't auto-center focused column
+
+    // Transparent background needed for noctalia-shell wallpaper
+    background-color "transparent"
+
+    // Column width presets (for Mod+R cycling)
+    // Similar to Hyprland's dwindle layout behavior
+    preset-column-widths {
+        proportion 0.33333 // 1/3 width
+        proportion 0.5     // 1/2 width
+        proportion 0.66667 // 2/3 width
+    }
+
+    // Window height presets (for Mod+Control+Shift+R cycling)
+    preset-window-heights {
+        proportion 0.33333 // 1/3 height
+        proportion 0.5     // 1/2 height
+        proportion 0.66667 // 2/3 height
+    }
+
+    // Struts define reserved space for panels/bars
+    // Noctalia manages this automatically
+    struts {
+        // No manual struts needed with noctalia
+    }
+
+    // Focus ring (border) configuration
+    // Hyprland had: border_size = 2, extend_border_grab_area = 10, resize_on_border = true
+    focus-ring {
+        width 2
+        active-color "#82dccc" // CACHYLGREEN from Hyprland (with alpha ff)
+        inactive-color "#798bb2" // CACHYGRAY from Hyprland
+
+        // Active gradient (mimicking Hyprland's active_border with two colors)
+        active-gradient from="#82dccc" to="#007d6f" angle=45
+    }
+
+    // Border configuration
+    border {
+        width 2
+        active-color "#82dccc"
+        inactive-color "#798bb2"
+
+        // Gradient support
+        active-gradient from="#82dccc" to="#007d6f" angle=45
+    }
+
+    // Default column width when opening new windows
+    default-column-width { proportion 0.5; }
+}

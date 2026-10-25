@@ -1,0 +1,20 @@
+// ────────────── Startup Applications (migrated from Hyprland) ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
+
+// ─── Essential services ───
+// Hyprland had: dbus-update-activation-environment, noctalia, xhost +SI:localuser:root
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
+spawn-at-startup "noctalia"
+spawn-at-startup "xhost" "+SI:localuser:root"
+
+// ─── UWSM integration ───
+// If you use UWSM (Universal Wayland Session Manager), your autostart apps
+// should be defined in XDG autostart instead of here
+// See: https://wiki.archlinux.org/title/XDG_Autostart
+
+// ─── Additional autostart apps (if not using UWSM) ───
+// Add your custom autostart applications here if you're not using UWSM
+// Examples:
+// spawn-at-startup "waybar"
+// spawn-at-startup "mako"
+// spawn-at-startup "swaybg" "-i" "/path/to/wallpaper.png"
