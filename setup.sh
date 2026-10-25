@@ -8,6 +8,7 @@ sudo pacman -Syu \
   direnv talosctl kubectl \
   codium ghostty neovim docker docker-compose zip just kubeconform
 
+curl -s https://fluxcd.io/install.sh | sudo bash
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 sudo chsh -s /bin/bash $USER
 reboot
