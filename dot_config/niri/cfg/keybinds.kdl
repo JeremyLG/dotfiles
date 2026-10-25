@@ -51,8 +51,7 @@ binds {
     // AZERTY: the physical "." key has ';' unshifted (period is Shift+;)
     Mod+Semicolon                       { expel-window-from-column; }
 
-    // Floating window toggle
-    Mod+Alt+Space                       hotkey-overlay-title="Toggle Floating" { toggle-window-floating; }
+    // Floating window toggle (also on Mod+T below)
     Mod+Shift+V                         { switch-focus-between-floating-and-tiling; }
 
     // Window sizing
@@ -108,6 +107,7 @@ binds {
     Mod+Shift+Semicolon                 hotkey-overlay-title="Emoji Picker" { spawn-sh "noctalia msg panel-toggle launcher /emo"; } // AZERTY: period is Shift+; so the physical "." key is the ; key
     Mod+Shift+L                         hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock"; }
     Mod+Alt+C                           hotkey-overlay-title="Session Menu" { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+Alt+Space                       hotkey-overlay-title="Menu" { spawn "menu"; } // ~/.local/bin/menu: power/screenshot menu
     Mod+V                               hotkey-overlay-title="Clipboard Manager" { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+A                               hotkey-overlay-title="Notification Center" { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
     Mod+Shift+W                         hotkey-overlay-title="Wallpaper Selector" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
