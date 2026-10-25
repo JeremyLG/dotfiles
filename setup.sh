@@ -22,12 +22,14 @@ newgrp docker
 mkdir -p ~/.config/sops/age
 age-keygen -o ~/.config/sops/age/keys.txt
 chmod 600 ~/.config/sops/age/keys.txt
-cat ~/.config/sops/age/keys.txt
 
 curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.5.3/prek-installer.sh | sh
+
 export NVM_DIR=
+export XDG_CONFIG_HOME=
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
 nvm install 26
+source ~/.bashrc
 
 curl -fsSL https://pi.dev/install.sh | sh
 curl -fsSL https://claude.ai/install.sh | bash
@@ -77,19 +79,27 @@ cat ~/.ssh/id_ed25519.issou.pub | wl-copy
 # go to forgejo
 git clone ssh://git@forgejo/topkek-issou/homelab.git
 git clone ssh://git@forgejo/topkek-issou/mds.git
+# add keys to sops, push and wait for other laptop to reencrypt
+cd homelab
+cat ~/.config/sops/age/keys.txt
+nvim .sops.yaml
+git add . && git commit -m "add sops key" && git push
+git pull
+just install
+
+cd ../mds
+cat ~/.config/sops/age/keys.txt
+nvim .sops.yaml
+git add . && git commit -m "add sops key" && git push
+git pull
+just install
 
 cd ~/devs/jeremylg
 cat ~/.ssh/id_ed25519.jeremylg.pub | wl-copy
 # go to github
 git clone git@github-perso:JeremyLG/lookml-utils.git
 
-# add new age key to repos and new laptop run reencrypt.sh
-# then
-cd mds
-just install
-cd homelab
-prek install
-
 curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | sh
 rtk init -g
 rtk init -g --agent pi
+rtk gain
