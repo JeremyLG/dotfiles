@@ -30,6 +30,7 @@ alias xf='xfreerdp3 /v:"$(pass contabo/ip)" /u:"$(pass contabo/uname)" /p:"$(pas
   /gfx:AVC420 /cert:ignore +fonts /clipboard /dynamic-resolution -wallpaper -themes -decorations'
 alias gpf='git push --force-with-lease'
 alias code='codium .'
+alias che='chezmoi'
 
 # --- tools ---
 eval "$(zoxide init --cmd cd bash)"
@@ -41,16 +42,6 @@ eval "$(direnv hook bash)"
 [ -f ~/google-cloud-sdk/path.bash.inc ] && . ~/google-cloud-sdk/path.bash.inc
 [ -f ~/google-cloud-sdk/completion.bash.inc ] && . ~/google-cloud-sdk/completion.bash.inc
 
-# nvm: default node on PATH right away, nvm itself lazy-loaded (keeps startup fast)
-export NVM_DIR="$HOME/.config/nvm"
-__nvm_default=$(cat "$NVM_DIR/alias/default" 2>/dev/null)
-for d in "$NVM_DIR"/versions/node/v"${__nvm_default#v}"*/bin; do
-  [ -d "$d" ] && PATH="$d:$PATH"
-done
-unset __nvm_default d
-nvm() {
-  unset -f nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-  nvm "$@"
-}
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion

@@ -68,6 +68,10 @@ ssh-keygen -f ~/.ssh/id_ed25519.issou
 ssh-keygen -f ~/.ssh/id_ed25519.jeremylg
 ssh-keygen -f ~/.ssh/id_ed25519.loreal
 
+chezmoi cd
+git remote remove origin
+git remote add origin git@github-perso:JeremyLG/dotfiles.git
+
 cd devs/issou
 cat ~/.ssh/id_ed25519.issou.pub | wl-copy
 # go to forgejo
@@ -78,3 +82,14 @@ cd ~/devs/jeremylg
 cat ~/.ssh/id_ed25519.jeremylg.pub | wl-copy
 # go to github
 git clone git@github-perso:JeremyLG/lookml-utils.git
+
+# add new age key to repos and new laptop run reencrypt.sh
+# then
+cd mds
+just install
+cd homelab
+prek install
+
+curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | sh
+rtk init -g
+rtk init -g --agent pi
