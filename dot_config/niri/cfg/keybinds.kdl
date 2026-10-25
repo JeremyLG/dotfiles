@@ -107,7 +107,7 @@ binds {
     Mod+Shift+Semicolon                 hotkey-overlay-title="Emoji Picker" { spawn-sh "noctalia msg panel-toggle launcher /emo"; } // AZERTY: period is Shift+; so the physical "." key is the ; key
     Mod+Shift+L                         hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock"; }
     Mod+Alt+C                           hotkey-overlay-title="Session Menu" { spawn-sh "noctalia msg panel-toggle session"; }
-    Mod+Alt+Space                       hotkey-overlay-title="Menu" { spawn "menu"; } // ~/.local/bin/menu: power/screenshot menu
+    Mod+Alt+Space                       hotkey-overlay-title="Menu" { spawn-sh "$HOME/.local/bin/menu"; } // power/screenshot menu (not on niri's PATH)
     Mod+V                               hotkey-overlay-title="Clipboard Manager" { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+A                               hotkey-overlay-title="Notification Center" { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
     Mod+Shift+W                         hotkey-overlay-title="Wallpaper Selector" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
