@@ -29,6 +29,7 @@ alias grep='grep --color=auto'
 alias xf='xfreerdp3 /v:"$(pass contabo/ip)" /u:"$(pass contabo/uname)" /p:"$(pass contabo/pwd)" \
   /gfx:AVC420 /cert:ignore +fonts /clipboard /dynamic-resolution -wallpaper -themes -decorations'
 alias gpf='git push --force-with-lease'
+alias code='codium .'
 
 # --- tools ---
 eval "$(zoxide init --cmd cd bash)"
