@@ -14,7 +14,8 @@
 # https://docs.noctalia.dev/umbriel/configuration/#include
 [include]
 files = [
-  "conf/keybinds.toml"
+  "conf/keybinds.toml",
+  "conf/rules.toml"
 ]
 
 
