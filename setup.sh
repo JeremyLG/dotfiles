@@ -1,3 +1,4 @@
+sudo pacman -R cachyos-hypr-noctalia hyprland xdg-desktop-portal-hyprland hyprlock hypridle hyprpaper
 sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b ~/.local/bin
 .local/bin/chezmoi init --apply JeremyLG
 chezmoi cd
@@ -8,10 +9,14 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 sudo pacman -Syu \
-  age sops bitwarden spotify-launcher discord freerdp pass \
+  age sops bitwarden spotify-launcher discord freerdp pass ffmpeg \
   direnv talosctl kubectl \
-  codium ghostty neovim docker docker-compose zip just kubeconform
+  codium ghostty neovim docker docker-compose zip just kubeconform \
+  fzf eza bat go
+
+# not sure if needed
 sudo pacman -Syyu
+sudo pacman -Rns $(pacman -Qtdq)
 
 curl -s https://fluxcd.io/install.sh | sudo bash
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh

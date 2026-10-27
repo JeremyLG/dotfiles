@@ -30,6 +30,7 @@ alias xf='xfreerdp3 /v:"$(pass contabo/ip)" /u:"$(pass contabo/uname)" /p:"$(pas
   /gfx:AVC420 /cert:ignore +fonts /clipboard /dynamic-resolution -wallpaper -themes -decorations'
 alias gpf='git push --force-with-lease'
 alias code='codium .'
+alias codelor='cd lor && codium .'
 alias che='chezmoi'
 
 # --- tools ---

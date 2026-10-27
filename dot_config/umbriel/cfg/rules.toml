@@ -1,0 +1,35 @@
+[keybinds]
+# Profile 0 (default-release)
+"Mod+B" = 'spawn:firefox --name firefox-p0 -P "jeremy"'
+"Mod+Alt+B" = 'spawn:firefox --name firefox-p1 -P "issou"'
+"Mod+Shift+B" = 'spawn:firefox --name firefox-p2 -P "loreal"'
+"Mod+Shift+Alt+B" = 'spawn:firefox --name firefox-p3 -P "ric"'
+
+[[window_rule]]
+match.app_id = ["^firefox-p0$", "^firefox-p1$"]
+default_workspace = ""
+default_focused = false
+
+# Profile 2 → workspace 2
+[[window_rule]]
+match.app_id = "^firefox-p2$"
+default_workspace = ""
+
+[[window_rule]]
+match.app_id = "codium"
+match.title = "lor"
+default_workspace = ""
+default_focused = false
+background_render = true
+
+[[window_rule]]
+match.app_id = "codium"
+default_workspace = ""
+default_focused = false
+
+# title can arrive late here, it still applies
+[[window_rule]]
+match.app_id = "codium"
+match.title = "lor"
+default_workspace = ""
+default_focused = false
