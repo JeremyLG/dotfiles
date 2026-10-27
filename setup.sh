@@ -3,10 +3,15 @@ sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b ~/.local/bin
 chezmoi cd
 prek install
 
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
 sudo pacman -Syu \
   age sops bitwarden spotify-launcher discord freerdp pass \
   direnv talosctl kubectl \
   codium ghostty neovim docker docker-compose zip just kubeconform
+sudo pacman -Syyu
 
 curl -s https://fluxcd.io/install.sh | sudo bash
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
