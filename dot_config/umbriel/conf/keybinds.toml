@@ -9,7 +9,8 @@
 
 # Applications and session
 "Mod+Return" = { action = "spawn:ghostty", repeat = false }
-"Mod" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+Space" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+Alt+Space" = { action = "spawn:$HOME/.local/bin/menu", repeat = false }
 "Mod+W" = { action = "window-close", repeat = false }
 "Mod+Escape" = "session-quit"
 "Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
@@ -95,7 +96,7 @@
 "Mod+Shift+9" = "window-move-to-workspace:9"
 
 # Scratchpad
-"Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
-"Mod+Space" = "scratchpad-toggle"
-"Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
-"Mod+Tab" = "scratchpad-focus-next"
+# "Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
+# "Mod+Space" = "scratchpad-toggle"
+# "Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
+# "Mod+Tab" = "scratchpad-focus-next"
