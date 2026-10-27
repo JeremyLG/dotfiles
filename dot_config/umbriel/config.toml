@@ -77,8 +77,28 @@ workspaces = ["", "", "", ""]
 position = [1920, 0]
 mode = "1920x1080@60"
 scale = 1.5
+vrr = "fullscreen"
+hdr = "auto"
+sdr_transfer = "gamma22"
 workspaces = ["π"]
 
+[output.HDMI-A-1]
+mode = "1920x1080@144"
+position = [1920, 0]
+scale = 1
+vrr = "fullscreen"
+hdr = "auto"
+sdr_transfer = "gamma22" # Or "srgb" for piecewise SDR decoding in HDR.
+workspaces = ["", "", "", ""]
+
+[output.DP-2]
+position = [0, 0]
+mode = "1920x1080@144"
+scale = 1
+vrr = "fullscreen"
+hdr = "auto"
+sdr_transfer = "gamma22"
+workspaces = ["π"]
 # ==============================================================================
 # Appearance
 # Blur uses a smaller radius than the built-in default.

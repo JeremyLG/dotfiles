@@ -14,6 +14,12 @@ sudo pacman -Syu \
   codium ghostty neovim docker docker-compose zip just kubeconform \
   fzf eza bat go
 
+yay -S umbriel-git
+sudo pacman -Syu noctalia noctalia-greeter
+
+# not sure if needed
+# expac meson nlohmann-json powerline-fonts tealdeer ttf-fantasque-nerd wlroots0.20
+
 # not sure if needed
 sudo pacman -Syyu
 sudo pacman -Rns $(pacman -Qtdq)
@@ -33,6 +39,9 @@ newgrp docker
 mkdir -p ~/.config/sops/age
 age-keygen -o ~/.config/sops/age/keys.txt
 chmod 600 ~/.config/sops/age/keys.txt
+
+curl -sSfL https://varlock.dev/install.sh | sh -s
+varlock init
 
 curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.5.3/prek-installer.sh | sh
 
