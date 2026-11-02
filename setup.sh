@@ -11,7 +11,7 @@ makepkg -si
 sudo pacman -Syu \
   age sops bitwarden spotify-launcher discord freerdp pass ffmpeg \
   direnv talosctl kubectl \
-  codium ghostty neovim docker docker-compose zip just kubeconform \
+  codium ghostty neovim docker docker-compose docker-buildx zip just kubeconform \
   fzf eza bat go
 
 yay -S umbriel-git
@@ -123,3 +123,5 @@ curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | sh
 rtk init -g
 rtk init -g --agent pi
 rtk gain
+
+sudo pacman -S postgresql-libs
