@@ -1,0 +1,3 @@
+#!/bin/sh
+out=$(umbriel outputs --json | jq -r '.[] | select(.focused) | .name')
+grim -o "$out" "$HOME/Images/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"

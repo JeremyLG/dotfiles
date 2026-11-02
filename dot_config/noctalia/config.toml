@@ -141,3 +141,9 @@ capsule_fill = "on_primary"
 inactive_pill_size = 1.0
 pill_scale = 0.80
 show_labels = true
+
+[audio]
+enable_notification_sounds = false
+
+[bluetooth]
+connection_notifications = false

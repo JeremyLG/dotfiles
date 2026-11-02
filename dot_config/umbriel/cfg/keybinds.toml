@@ -7,6 +7,11 @@
 
 [keybinds]
 
+"Mod+E" = { action = "spawn:ghostty -e yazi", repeat = false }
+"Mod+S" = { action = "spawn:noctalia msg screenshot-fullscreen --save-to-file --no-copy-to-clipboard --no-pipe-to-command --no-annotate", repeat = false }
+"Mod+Shift+S" = { action = "spawn:noctalia msg screenshot-region --copy-to-clipboard --no-save-to-file --no-pipe-to-command --no-annotate", repeat = false }
+"Mod+Alt+S" = { action = "spawn:noctalia msg screenshot-region --copy-to-clipboard --no-save-to-file", repeat = false }
+
 # Applications and session
 "Mod+Return" = { action = "spawn:ghostty", repeat = false }
 "Mod+Space" = "spawn:noctalia msg panel-toggle launcher"
@@ -70,7 +75,7 @@
 "Mod+eacute"     = "workspace-switch:"
 "Mod+quotedbl"   = "workspace-switch:"
 "Mod+apostrophe" = "workspace-switch:"
-"Mod+parenleft"  = "workspace-switch:5"
+"Mod+parenleft"  = "workspace-switch:"
 "Mod+minus"      = "workspace-switch:π"
 "Mod+egrave"     = "workspace-switch:7"
 "Mod+underscore" = "workspace-switch:8"
@@ -81,7 +86,7 @@
 "Mod+Shift+2" = "window-move-to-workspace:"
 "Mod+Shift+3" = "window-move-to-workspace:"
 "Mod+Shift+4" = "window-move-to-workspace:"
-"Mod+Shift+5" = "window-move-to-workspace:5"
+"Mod+Shift+5" = "window-move-to-workspace:"
 "Mod+Shift+6" = "window-move-to-workspace:π"
 "Mod+Shift+7" = "window-move-to-workspace:7"
 "Mod+Shift+8" = "window-move-to-workspace:8"
