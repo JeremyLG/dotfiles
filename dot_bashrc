@@ -20,6 +20,10 @@ __git_branch() { git symbolic-ref --short HEAD 2>/dev/null | sed 's/.*/ (&)/'; }
 __prompt_color() { (($?)) && printf '\e[31m' || printf '\e[32m'; }
 PS1='\[\e[34m\]\w\[\e[33m\]$(__git_branch)\[\e[0m\] \[$(__prompt_color)\]❯\[\e[0m\] '
 
+# dolphin
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 # --- aliases ---
 alias ls='eza --icons --group-directories-first'
 alias ll='eza -l --icons --group-directories-first'
