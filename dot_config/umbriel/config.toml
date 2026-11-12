@@ -171,6 +171,10 @@ layout = "fr"
 follows_mouse = false
 # hover_raises = false # Hover focuses only; clicks and keybinds raise.
 
+[input.mouse]
+sensitivity = 0.5
+accel_profile = "flat"
+
 # Confine touch input to one display.
 #
 # [input.touch]

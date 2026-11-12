@@ -7,7 +7,7 @@
 
 [keybinds]
 
-"Mod+E" = { action = "spawn:ghostty -e yazi", repeat = false }
+"Mod+E" = { action = "spawn:dolphin", repeat = false }
 "Mod+S" = { action = "spawn:noctalia msg screenshot-fullscreen --save-to-file --no-copy-to-clipboard --no-pipe-to-command --no-annotate", repeat = false }
 "Mod+Shift+S" = { action = "spawn:noctalia msg screenshot-region --copy-to-clipboard --no-save-to-file --no-pipe-to-command --no-annotate", repeat = false }
 "Mod+Alt+S" = { action = "spawn:noctalia msg screenshot-region --copy-to-clipboard --no-save-to-file", repeat = false }

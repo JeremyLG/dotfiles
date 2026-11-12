@@ -11,10 +11,15 @@ makepkg -si
 sudo pacman -Syu \
   age sops bitwarden spotify-launcher discord freerdp pass ffmpeg \
   direnv talosctl kubectl \
-  codium ghostty neovim docker docker-compose docker-buildx zip just kubeconform \
-  fzf eza bat go
+  codium ghostty neovim docker docker-compose docker-buildx zip just kubeconform postgresql-libs \
+  dolphin fzf eza bat go \
+  nmap moonlight-qt wireguard-tools wakeonlan
 
-yay -S umbriel-git
+yay -S ib-tws
+# if issues
+# yay -S ib-tws --mflags "--skipinteg"
+
+yay -S umbriel-git qt6ct-kde
 sudo pacman -Syu noctalia noctalia-greeter
 
 # not sure if needed
@@ -30,6 +35,10 @@ sudo chsh -s /bin/bash $USER
 reboot
 
 sudo pacman -R -c fish zsh alacritty
+
+fc-cache -fv
+gsettings set org.gnome.desktop.interface font-name 'JetBrainsMono Nerd Font 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 11'
 
 sudo systemctl enable docker
 sudo systemctl start docker
@@ -124,4 +133,6 @@ rtk init -g
 rtk init -g --agent pi
 rtk gain
 
-sudo pacman -S postgresql-libs
+echo "$USER ALL=(root) NOPASSWD: /usr/bin/efibootmgr, /usr/bin/systemctl reboot" >/tmp/wol-windows
+sudo visudo -cf /tmp/wol-windows && sudo install -m 0440 -o root -g root /tmp/wol-windows /etc/sudoers.d/wol-windows
+rm /tmp/wol-windows
