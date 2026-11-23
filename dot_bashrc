@@ -30,14 +30,18 @@ alias ll='eza -l --icons --group-directories-first'
 alias lla='eza -la --icons --group-directories-first'
 alias cat='bat --paging=never'
 alias grep='grep --color=auto'
-alias xf='xfreerdp3 /v:"$(pass contabo/ip)" /u:"$(pass contabo/uname)" /p:"$(pass contabo/pwd)" \
-  /gfx:AVC420 /cert:ignore +fonts /clipboard /dynamic-resolution -wallpaper -themes -decorations \
+alias xf='sdl-freerdp3 /v:"$(pass contabo/ip)" /u:"$(pass contabo/uname)" /p:"$(pass contabo/pwd)" \
+  /gfx:RFX /cert:ignore +fonts +clipboard /dynamic-resolution -wallpaper -themes -decorations \
   /drive:partage,$HOME/share'
 alias gpf='git push --force-with-lease'
 alias code='codium .'
 alias codelor='cd lor && codium .'
 alias che='chezmoi'
 alias nc='netcat'
+alias bx='cd box && uv version 2026.11.2 && uv build --wheel && cp dist/box_spreads-2026.11.2-py3-none-any.whl ~/share/ && uv tool install -e .'
+
+# if you need chapeau dead key typed
+# env GTK_IM_MODULE=gtk-im-context-simple ghostty
 
 # --- tools ---
 eval "$(zoxide init --cmd cd bash)"

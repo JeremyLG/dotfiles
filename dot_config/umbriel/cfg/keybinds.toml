@@ -32,6 +32,9 @@
 "XF86MonBrightnessUp" = { action = "spawn:noctalia msg brightness-up", allow_when_locked = true }
 "XF86MonBrightnessDown" = { action = "spawn:noctalia msg brightness-down", allow_when_locked = true }
 
+# Logitech media keyboards calculator key
+"XF86Calculator" = { action = "spawn:qalculate-gtk", repeat = false }
+
 # Focus and movement
 "Mod+Left" = "window-focus-left"
 "Mod+Down" = "window-focus-down"

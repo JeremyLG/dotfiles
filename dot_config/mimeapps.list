@@ -1,8 +1,10 @@
 [Added Associations]
+text/csv=nvim.desktop;vim.desktop;micro.desktop;vscodium-wayland.desktop;vscodium.desktop;
 
 [Default Applications]
 inode/directory=org.kde.dolphin.desktop;
+text/csv=nvim.desktop;
 text/plain=org.gnome.TextEditor.desktop;
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
-x-scheme-handler/claude-cli=claude-code-url-handler.desktop
